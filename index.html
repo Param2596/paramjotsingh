@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paramjot Singh — Retro Terminal</title>
+  <meta name="description" content="Portfolio of Paramjot Singh, Quality Analyst. Playwright, API testing, and RetroTerminal.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/terminal.css">
+</head>
+<body>
+  <a class="skip" href="#output">Skip to content</a>
+  <div class="bezel">
+    <header class="status">
+      <span>RETRO TERMINAL</span>
+      <span class="status-mid">PARAMJOT.SYS</span>
+      <time id="clock">--:--:--</time>
+    </header>
+
+    <nav class="nav" aria-label="Sections">
+      <button type="button" data-section="about" class="is-on">ABOUT</button>
+      <button type="button" data-section="work">WORK</button>
+      <button type="button" data-section="record">RECORD</button>
+      <button type="button" data-section="contact">CONTACT</button>
+    </nav>
+
+    <main class="screen" id="screen">
+      <div id="boot" class="boot" aria-live="polite"></div>
+      <div id="log" class="log" hidden></div>
+      <div id="output" tabindex="-1"></div>
+    </main>
+
+    <form class="prompt" id="prompt-form" autocomplete="off">
+      <label for="command">guest@paramjot:~$</label>
+      <input id="command" name="command" spellcheck="false" autocapitalize="off" aria-label="Command" placeholder="type help">
+    </form>
+
+    <footer class="status foot">
+      <span id="ready">BOOTING</span>
+      <span>MEM: 640K</span>
+    </footer>
+  </div>
+  <div class="scan" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <script src="js/terminal.js"></script>
+</body>
+</html>
