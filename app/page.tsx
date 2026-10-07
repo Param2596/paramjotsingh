@@ -24,14 +24,24 @@ function ExternalLink({
   );
 }
 
+function Summary({ lines }: { lines: readonly string[] }) {
+  return (
+    <div className="mt-3 space-y-3 leading-relaxed">
+      {lines.map((line) => (
+        <p key={line}>{line}</p>
+      ))}
+    </div>
+  );
+}
+
 export default function Home() {
   return (
-    <div className="mx-auto w-full max-w-[40rem] px-6 py-12 sm:py-20">
+    <div className="mx-auto w-full max-w-3xl px-6 py-12 sm:py-20">
       <a
-        href="#work"
+        href="#projects"
         className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-4 focus:bg-background focus:px-2 focus:py-1 focus:text-amber"
       >
-        Skip to work
+        Skip to projects
       </a>
 
       <header className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 text-sm">
@@ -50,7 +60,7 @@ export default function Home() {
           {site.name}
         </h1>
         <p className="mt-4">{site.role}</p>
-        <p className="mt-8 max-w-prose leading-7">{site.bio}</p>
+        <p className="mt-8 leading-relaxed">{site.bio}</p>
         <ul className="mt-8 flex flex-wrap gap-x-2 gap-y-1 text-xs tracking-[0.16em] text-muted uppercase">
           {site.stack.map((item) => (
             <li key={item} className="after:ml-2 after:content-['·'] last:after:content-none">
@@ -59,31 +69,41 @@ export default function Home() {
           ))}
         </ul>
 
-        <div id="work" className="mt-16 divide-y divide-rule border-y border-rule">
-          <article className="py-8">
+        <section id="projects" className="mt-16">
+          <h2 className="text-sm tracking-[0.16em] text-muted uppercase">
+            projects
+          </h2>
+          <div className="mt-6 divide-y divide-rule border-y border-rule">
+            {projects.map((project) => (
+              <article key={project.name} className="py-8">
+                <div className="flex items-baseline justify-between gap-6">
+                  <h3 className="text-base">{project.name}</h3>
+                  <ExternalLink
+                    href={project.href}
+                    label={`${project.label} for ${project.name}`}
+                  >
+                    {project.label}
+                  </ExternalLink>
+                </div>
+                <Summary lines={project.summary} />
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="experience" className="mt-16">
+          <h2 className="text-sm tracking-[0.16em] text-muted uppercase">
+            experience
+          </h2>
+          <article className="mt-6">
             <div className="flex items-baseline justify-between gap-6">
-              <h2 className="text-base">{experience.org}</h2>
+              <h3 className="text-base">{experience.org}</h3>
               <p className="text-sm text-muted">{experience.dates}</p>
             </div>
             <p className="mt-2 text-sm text-muted">{experience.title}</p>
-            <p className="mt-3 max-w-prose leading-7">{experience.summary}</p>
+            <Summary lines={experience.summary} />
           </article>
-
-          {projects.map((project) => (
-            <article key={project.name} className="py-8">
-              <div className="flex items-baseline justify-between gap-6">
-                <h3 className="text-base">{project.name}</h3>
-                <ExternalLink
-                  href={project.href}
-                  label={`${project.label} for ${project.name}`}
-                >
-                  {project.label}
-                </ExternalLink>
-              </div>
-              <p className="mt-3 max-w-prose leading-7">{project.summary}</p>
-            </article>
-          ))}
-        </div>
+        </section>
       </main>
 
       <footer className="mt-10 space-y-2 text-sm text-muted">
@@ -102,6 +122,13 @@ export default function Home() {
           >
             {site.phone}
           </a>
+          <span aria-hidden="true"> · </span>
+          <ExternalLink
+            href={site.linkedin}
+            className="underline-offset-4 hover:text-amber hover:underline"
+          >
+            linkedin
+          </ExternalLink>
         </p>
         <p>
           {site.place}

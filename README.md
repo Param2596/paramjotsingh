@@ -1,6 +1,6 @@
 # Paramjot Singh
 
-Personal site for Paramjot Singh, a QA automation engineer. One quiet page: the OATI role, three projects, and a way to get in touch.
+Personal site for Paramjot Singh, a software engineer. One page covering the OATI role, selected projects, and contact details.
 
 ## Run
 

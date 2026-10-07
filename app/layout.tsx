@@ -8,9 +8,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Paramjot Singh — QA Engineer",
+  title: "Paramjot Singh — Software Engineer",
   description:
-    "I test complex systems professionally and build software because apparently testing other people's software wasn't enough.",
+    "I build software and automated tests in TypeScript, with Playwright, APIs, and SQL validation. Creator of RetroTerminal, ranked #8 on Product Hunt.",
 };
 
 export default function RootLayout({
