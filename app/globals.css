@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0c0e0b;
+  --foreground: #c8c4ae;
+  --amber: #e6c34a;
+  --muted: #9c987f;
+  --rule: #2a2918;
+  --status: #3ecf6e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-amber: var(--amber);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-status: var(--status);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+::selection {
+  background: var(--amber);
+  color: var(--background);
+}
+
+a:focus-visible {
+  outline: 1px solid var(--amber);
+  outline-offset: 4px;
+}
